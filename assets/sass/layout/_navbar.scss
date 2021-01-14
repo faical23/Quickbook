@@ -1,0 +1,164 @@
+@import "../components/menu-icon";
+
+nav.navbar {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	&.navbar-light {
+		background: $white;
+		img{
+			width:70%;
+		}
+		.nav-content {
+			.sign-up{
+				margin-right: 240px;
+			}
+			.nav-item {
+				.nav-link {
+					font-size: 22px;
+					font-weight: 700px;
+					font-style: normal;
+					&:hover,
+					&.active {
+						&::after {
+							background: $secondry-100;
+						}
+					}
+				}
+			}
+		}
+		.menu-icon-wrapper svg path {
+			stroke: $secondry-100;
+		}
+	}
+
+	.nav-content {
+		margin-bottom: 0;
+		margin-left: auto;
+		@include flex(space-between, center);
+
+		.nav-item {
+			.nav-link {
+				color: $white;
+				padding: 15px 22px;
+				position: relative;
+				.sign-up{
+						margin-right: 240px;
+					}
+				&:hover,
+				&.active {
+					//font-family: $primary-SemiBold;
+					&::after {
+						content: "";
+						position: absolute;
+						bottom: 5px;
+						left: 50%;
+						transform: translateX(-50%);
+						width: 20px;
+						height: 2px;
+						background: $white;
+					}
+				}
+			}
+		}
+	}
+
+	@include for-size(tablet-portrait-down) {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		.nav-content {
+			background: linear-gradient(90deg, #e57a7a 8.19%, #efa29b 114.43%);
+			position: fixed;
+			top: 0;
+			left: -900px;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			flex-direction: column;
+			justify-content: center;
+			transition: left 400ms ease-in;
+			z-index: 9;
+			margin: 0;
+
+			.nav-item {
+				margin-bottom: 20px;
+				.sign-up{
+					margin-right: auto !important;
+				}
+			}
+
+			&.is-active {
+				left: 0;
+				transition: left 400ms ease-out;
+			}
+		}
+		&.navbar-light {
+			.nav-content {
+				background-image: none;
+				background-color: $white;
+
+				.nav-item {
+					.nav-link {
+
+						&:hover,
+						&.active {
+							&::after {
+								background: $secondry-100;
+							}
+						}
+					}
+				}
+			}
+			.menu-icon-wrapper svg path {
+				stroke:$secondry-100;
+			}
+		}
+		.menu-icon-wrapper {
+			display: block !important;
+		}
+	}
+	@include for-size(desktop-down){
+			.brand{
+				img{
+					width:60%;
+				}
+			}
+	}
+	@include for-size(tablet-landscape-down){
+		.brand{
+			width:44%;
+			img{
+				width:50%;
+			}
+		}
+}
+	@include for-size(phone-only) {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		.brand{
+				width:86%;
+		}
+
+	}
+}
+
+
+
+@include for-size(desktop-down){
+	nav.navbar.navbar-light .nav-content .sign-up {
+		margin-right: 90px;
+	}
+}
+
+@include for-size(tablet-landscape-down ){
+	nav.navbar.navbar-light .nav-content .sign-up {
+		margin-right: -6px;
+	}
+	nav.navbar.navbar-light .nav-content .nav-item .nav-link {
+		font-size: 18px;
+	}
+}
+@include for-size(tablet-portrait-down ){
+	nav.navbar.navbar-light .nav-content .nav-item .nav-link {
+		font-size: 22px;
+	}
+}
